@@ -13,15 +13,15 @@ const menus = [
 
 const Sidebar: React.FC<SidebarProps> = ({ open }) => {
   const page = usePage();
-  const currentUrl = page.url;
 
   return (
-    <aside
-      className={clsx(
-        "bg-light-blue dark:bg-gray-800 p-6 w-72 border-r dark:border-gray-700 transition-transform duration-300 fixed md:static top-0 left-0 min-h-screen md:translate-x-0 z-40",
-        open ? "translate-x-0" : "-translate-x-full"
-      )}
-    >
+<aside
+  className={clsx(
+    "bg-light-blue dark:bg-gray-800 p-6 w-72 border-r dark:border-gray-700 transition-transform duration-300 fixed md:static left-0 min-h-[calc(100vh-4rem)] md:translate-x-0 z-40",
+    "top-16",
+    open ? "translate-x-0" : "-translate-x-full"
+  )}
+>
    <nav className="space-y-2">
         {menus.map((menu, i) => {
           const isActive = page.url.startsWith(
