@@ -2,26 +2,32 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\ProductSeeder;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\PurchaseSeeder;
+use Database\Seeders\SupplierSeeder;
+use Database\Seeders\MasterDataSeeder;
+use Database\Seeders\ReturnItemSeeder;
+use Database\Seeders\TransactionSeeder;
+use Database\Seeders\StockMovementSeeder;
+use Database\Seeders\RolePermissionSeeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::firstOrCreate(
-            ['email' => 'test@example.com'],
-            [
-                'name' => 'Test User',
-                'password' => 'password',
-                'email_verified_at' => now(),
-            ]
-        );
+        $this->call([
+            RolePermissionSeeder::class,
+            UserSeeder::class,
+            CategorySeeder::class,
+            SupplierSeeder::class,
+            ProductSeeder::class,
+            PurchaseSeeder::class,
+            TransactionSeeder::class,
+            ReturnItemSeeder::class,
+            StockMovementSeeder::class,
+        ]);
     }
 }
